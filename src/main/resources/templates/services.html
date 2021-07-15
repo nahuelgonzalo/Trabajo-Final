@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Parallo - Services</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/templatemo-style.css" />
+  </head>
+<!--
+Parallo Template
+https://templatemo.com/tm-534-parallo
+-->
+  <body id="servicesPage">
+    <div class="parallax-window" data-parallax="scroll" data-image-src="img/productos.jpg">
+      <div class="container-fluid">
+        <div class="row tm-brand-row">
+          <div class="col-lg-4 col-11">
+            <div class="tm-brand-container tm-bg-white-transparent">
+              <i class="fas fa-2x fa-pen tm-brand-icon"></i>
+              <div class="tm-brand-texts">
+                <h1 class="text-uppercase tm-brand-name">VeganApp</h1>
+                <p class="small">Aplicación Vegana</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 col-1">
+            <div class="tm-nav">
+              <nav
+                class="navbar navbar-expand-lg navbar-light tm-bg-white-transparent tm-navbar">
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarNav"
+                  aria-controls="navbarNav"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <div class="tm-nav-link-highlight"></div>
+                      <a class="nav-link" th:href="@{/index}"
+                        >Home</a
+                      >
+                    </li>
+                    
+                    <li class="nav-item green-highlight active">
+                      <div class="tm-nav-link-highlight"></div>
+                      <a class="nav-link" href="#">Servicios <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <div class="tm-nav-link-highlight"></div>
+                      <a class="nav-link" th:href="@{/testimonials}">Testimonios</a>
+                    </li>
+                    <li class="nav-item">
+                      <div class="tm-nav-link-highlight"></div>
+                      <a class="nav-link" th:href="@{contact}">Contacto</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <!-- Services header -->
+        <section class="row" id="tmServices">
+          <div class="col-12">
+            <div class="parallax-window tm-services-parallax-header"
+                 data-parallax="scroll"
+                 data-z-index="101"
+                 data-image-src="img/coffee-glass.jpg">
+
+                 <div class="tm-bg-black-transparent text-center tm-services-header">
+                    <h2 class="text-uppercase tm-services-page-title">Nuestro servicios</h2>
+                    <p class="tm-services-description mb-0 small">
+                        Esta app esta pensanda para ayudar principalmete a personas veganas. <br>
+                        Aun asi la misma esta disponible para todos.    
+                    </p>
+                </div>
+            </div>
+          </div>  
+
+          <div class="col-12">
+            <div class="tm-bg-black-transparent tm-services-detail-box">
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non in harum optio illum, enim, dolores, facilis reprehenderit suscipit aliquid ullam veritatis. Ad facilis repellat nisi magni exercitationem sed ex reiciendis.
+                </p>
+                
+            </div>
+          </div> 
+
+               
+        </section>
+
+        <!-- Page footer -->
+        <footer class="row">
+          <p class="col-12 text-white text-center tm-copyright-text">
+            Copyright &copy; 2021 pagina de inicio de la aplación. 
+            Diseñado por  <a href="#" class="tm-copyright-link">Nahuel Girón</a>
+          </p>
+        </footer>
+      </div>
+      <!-- .container-fluid -->
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(function(){
+            $('.tabgroup > div').hide();
+            $('.tabgroup > div:first-of-type').show();  
+            $('.tabs a').click(function(e){
+              e.preventDefault();
+              var $this = $(this),
+                  tabgroup = '#'+$this.parents('.tabs').data('tabgroup'),
+                  others = $this.closest('li').siblings().children('a'),
+                  target = $this.attr('href');
+              others.removeClass('active');
+              $this.addClass('active');
+              $(tabgroup).children('div').hide();
+              $(target).show();
+
+              // Scroll to tab content (for mobile)
+              if($(window).width() < 992) {
+                  $('html, body').animate({
+                      scrollTop: $("#first-tab-group").offset().top
+                  }, 200);    
+              }              
+            })  
+        });
+        
+    </script>
+  </body>
+</html>
