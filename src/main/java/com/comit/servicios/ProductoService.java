@@ -1,8 +1,9 @@
 package com.comit.servicios;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.comit.modelo.Producto;
 import com.comit.modelo.ProductoRepository;
 
@@ -20,4 +21,7 @@ public class ProductoService {
 		return productoRepository.saveAndFlush(producto);
 	}
 	
+	public List<Producto> getProductos(){
+		return productoRepository.findAll();
+	}
 }

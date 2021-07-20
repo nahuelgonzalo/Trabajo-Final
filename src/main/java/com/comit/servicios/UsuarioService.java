@@ -3,8 +3,7 @@ package com.comit.servicios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.comit.modelo.Producto;
-import com.comit.modelo.ProductoRepository;
+
 import com.comit.modelo.Usuario;
 import com.comit.modelo.UsuarioRepository;
 

@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1>Nuevo Producto</h1>
-     <form th:action ="@{/crear}" method="post" th:object=${producto}>
+     <form th:action ="@{/guardar}" method="post" th:object=${producto}>
      	<p>   
             Nombre:<input type="text" id="nombre" name="nombre" th:field="*{nombre}">
         </p>
@@ -18,5 +18,18 @@
         </p>				
         <p> <input type="submit" value="Enviar"> </p>
 	</form>
+	
+	<table>
+		<tr>
+			<th>Nombre</th>
+			<th>Codigo de Producto</th>
+			<th>Origen</th>
+		</tr>
+		<tr th:each="p: ${productos}">
+			<td th:text="${p.nombre}"></td>
+			<td th:text="${p.codigoProducto}"></td>
+			<td th:text="${p.origen}"></td>
+		</tr>
+	</table>
 </body>
 </html>

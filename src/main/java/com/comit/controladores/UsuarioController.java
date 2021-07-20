@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.comit.modelo.Producto;
+
 import com.comit.modelo.Usuario;
-import com.comit.servicios.ProductoService;
+
 import com.comit.servicios.UsuarioService;
 
 @Controller

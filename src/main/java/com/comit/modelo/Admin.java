@@ -1,10 +1,12 @@
 package com.comit.modelo;
 
+
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+
 
 @Entity
 public class Admin {
@@ -16,7 +18,7 @@ public class Admin {
 	private String nombre;
 	private String contraseña;
 	
-	private Producto producto;
+	
 	
 	public Admin() {
 		
@@ -38,13 +40,9 @@ public class Admin {
 		this.contraseña = contraseña;
 	}
 
-	public Producto getProducto() {
-		return producto;
-	}
+	
 
-	public void setProducto(Producto producto) {
-		this.producto = producto;
-	}
+	
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
