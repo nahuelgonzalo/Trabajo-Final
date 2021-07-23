@@ -2,21 +2,42 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>mostrar lista</title>
+<title>Mostrar lista productos</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
 </head>
 <body>
 	
-	<table>
-		<tr>
-			<th>Nombre</th>
-			<th>Codigo de Producto</th>
-			<th>Origen</th>
-		</tr>
-		<tr th:each="p: ${productos}">
-			<td th:text="${p.nombre}"></td>
-			<td th:text="${p.codigoProducto}"></td>
-			<td th:text="${p.origen}"></td>
-		</tr>
-	</table>
+	<div class="container mt-4">
+	<a th:href="@{/crearProducto}" class="btn btn-primary">Nuevo Producto</a>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Codigo de Producto</th>
+					<th>Origen</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="p:${productos}">
+					<td th:text="${p.nombre}"></td>
+					<td th:text="${p.codigoProducto}"></td>
+					<td th:text="${p.origen}"></td>
+					<td>
+					<img src ="$/producto/barcode/${p.id}" >
+					</td>
+					<td>
+						<a th:href="@{/editar/}+${p.id}" class="btn btn-warning">Editar</a>
+						<a th:onclick="eliminar([[${p.id}]])" href="#" class="btn btn-danger">Borrar</a>
+					</td>
+				</tr>
+			</tbody>
+			
+		</table>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="js/funciones.js"></script>
 </body>
 </html>
