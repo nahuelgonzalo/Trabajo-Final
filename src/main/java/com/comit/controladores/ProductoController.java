@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,10 +72,22 @@ public class ProductoController {
 	}
 	
 	@GetMapping("/editar/{id}")
-	public String editar(@PathVariable Long id, Model model) {
-		Optional<Producto>producto = productoService.editarId(id);
-		model.addAttribute("producto",producto);
-		return "crearProducto";
+	public String editar(@PathVariable("id") Long id, Model model) {
+		Optional<Producto> producto = productoService.editarId(id);
+		if(producto.isPresent())
+			model.addAttribute("producto",producto.get());
+		return "editarProducto";
+	}
+	
+	@PostMapping(value = "actualizar")
+	public String actualizarProducto(
+			@ModelAttribute("producto") Producto producto,
+			Model model) {
+		
+		producto = productoService.guardar(producto);
+		model.addAttribute("producto", producto);
+		return "redirect:mostrarListas";
+		
 	}
 	
 	
