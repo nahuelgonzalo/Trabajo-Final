@@ -90,8 +90,7 @@ public class ProductoController {
 		
 	}
 	
-	
-	
+
 	@GetMapping("/eliminar/{id}")
 	public String borrar(@PathVariable Long id, Model model) {
 		productoService.borrar(id);

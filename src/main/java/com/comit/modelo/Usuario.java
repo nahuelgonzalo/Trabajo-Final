@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+
 
 @Entity
 public class Usuario {
@@ -14,36 +14,44 @@ public class Usuario {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
-	private String contraseña;
+	private String contrasenia;
 	
-	@OneToOne
-	private Producto producto;
 	
 	
 	public Usuario() {
 		
 	}
 	
+
 	
-	
+
+	public Long getId() {
+		return id;
+	}
+
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
+
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasenia() {
+		return contrasenia;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
-	public Producto getProducto() {
-		return producto;
-	}
-	public void setProducto(Producto producto) {
-		this.producto = producto;
-	}
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
