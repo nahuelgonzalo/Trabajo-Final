@@ -1,14 +1,19 @@
 package com.comit.controladores;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.comit.modelo.Producto;
 
 
 @Controller
 @RequestMapping
 public class MainController {
 
-	@RequestMapping ("/index")
-	public String index() {
+	@GetMapping ("/index")
+	public String index(Model model) {
+		model.addAttribute("producto", new Producto());
 		return "index";
 	}
 	@RequestMapping ("/services")

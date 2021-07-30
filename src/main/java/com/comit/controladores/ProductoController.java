@@ -97,4 +97,11 @@ public class ProductoController {
 		return "mostrarListas";
 	}
 	
+	@GetMapping("/devolverOrigen")
+	public String devolverOrigen(@RequestParam(value = "codigoProducto")String codigo,@ModelAttribute("producto") Producto producto, Model model) {
+		Producto obtenerXcodigo = productoService.devolverOrigenXCodigo(codigo);
+		model.addAttribute("producto", obtenerXcodigo == null? new Producto():obtenerXcodigo);
+		return "/index";
+	}
+	
 }

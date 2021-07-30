@@ -33,4 +33,8 @@ public class ProductoService {
 	public void borrar(Long id) {
 		productoRepository.deleteById(id);	
 	}
+	
+	public Producto devolverOrigenXCodigo(String codigo) {
+		return productoRepository.findByCodigoProducto(codigo);
+	}
 }
